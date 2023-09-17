@@ -131,8 +131,7 @@ class _BusStopState extends State<BusStop> {
                                   ),
                                   //tell dest
                                   Text(
-                                    myLongDouble.toString(),
-                                    // ' ARL ลาดกระบัง',
+                                    ' ARL ลาดกระบัง',
                                     style: TextStyle(
                                       color: Colors.white,
                                       fontFamily: "FCIconic",
@@ -245,20 +244,52 @@ class ShowMapAndMark extends StatefulWidget {
 
 class _ShowMapAndMarkState extends State<ShowMapAndMark> {
   final Completer<GoogleMapController> _controller = Completer();
-
-  static const LatLng source = LatLng(13.72987831788902, 100.77799696840856);
-
+  static String API = 'AIzaSyDkrfYFY_JAb_mkmkWLltLnk6TNH9nlolc';
+  static LatLng source = LatLng(13.72987831788902, 100.77799696840856);
   static LatLng dest = LatLng(myLatDouble, myLongDouble);
+  List<LatLng> _polylineCoordinates = [];
+  Set<Polyline> _polylines = {};
+  PolylinePoints _polylinePoints = PolylinePoints();
 
-  final Polyline _kPolyline = Polyline(
-    polylineId: PolylineId('_kPolyline'),
-    color: const Color(0xFF7B61FF),
-    width: 6,
-    points: [
-      LatLng(13.72987831788902, 100.77799696840856),
-      LatLng(myLatDouble, myLongDouble)
-    ],
-  );
+  @override
+  void initState() {
+    super.initState();
+    _getPolyline();
+  }
+
+  Future<void> _getPolyline() async {
+    PolylineResult result = await _polylinePoints.getRouteBetweenCoordinates(
+      API,
+      PointLatLng(
+          13.72987831788902, 100.77799696840856), // Starting coordinates
+      PointLatLng(myLatDouble, myLongDouble), // Ending coordinates
+    );
+
+    if (result.status == 'OK') {
+      result.points.forEach((PointLatLng point) {
+        _polylineCoordinates.add(LatLng(point.latitude, point.longitude));
+      });
+
+      setState(() {
+        _polylines.add(Polyline(
+          polylineId: PolylineId('polyline_id'),
+          points: _polylineCoordinates,
+          color: Color.fromARGB(255, 181, 21, 255),
+          width: 5,
+        ));
+      });
+    }
+  }
+
+  // Polyline _kPolyline = Polyline(
+  //   polylineId: PolylineId('_kPolyline'),
+  //   color: const Color(0xFF7B61FF),
+  //   width: 6,
+  //   points: [
+  //     LatLng(13.72987831788902, 100.77799696840856),
+  //     LatLng(myLatDouble, myLongDouble)
+  //   ],
+  // );
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -269,9 +300,7 @@ class _ShowMapAndMarkState extends State<ShowMapAndMark> {
         ),
 
         //markers: {_GoogleMark},
-        polylines: {
-          _kPolyline,
-        },
+        polylines: _polylines,
         minMaxZoomPreference: MinMaxZoomPreference(10, 15),
         markers: {
           Marker(

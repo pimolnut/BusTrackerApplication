@@ -28,7 +28,7 @@ class _LatDisplayState extends State<LatDisplay> {
     super.initState();
 
     // Start a timer to navigate to Page2 after 3 seconds (adjust as needed).
-    Timer(Duration(milliseconds: 500), () {
+    Timer(Duration(seconds: 1), () {
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => BusStop()),
@@ -60,7 +60,13 @@ class _LatDisplayState extends State<LatDisplay> {
               print("**aaa***");
               latArr.removeAt(0);
               longArr.remove(0);
-              return Text('latString');
+              return Center(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [Text('Loading')],
+                ),
+              );
             }));
   }
 }
