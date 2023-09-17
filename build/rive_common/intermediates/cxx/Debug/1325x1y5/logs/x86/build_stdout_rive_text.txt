@@ -1,0 +1,13 @@
+ninja: Entering directory `/Users/pimolnutsriphadej/.pub-cache/hosted/pub.dev/rive_common-0.2.7/android/.cxx/Debug/1325x1y5/x86'
+[1/12] Building CXX object CMakeFiles/rive_text.dir/Users/pimolnutsriphadej/.pub-cache/hosted/pub.dev/rive_common-0.2.7/ios/harfbuzz/src/hb-static.cc.o
+[2/12] Building CXX object CMakeFiles/rive_text.dir/Users/pimolnutsriphadej/.pub-cache/hosted/pub.dev/rive_common-0.2.7/ios/harfbuzz/src/hb-subset-repacker.cc.o
+[3/12] Building CXX object CMakeFiles/rive_text.dir/Users/pimolnutsriphadej/.pub-cache/hosted/pub.dev/rive_common-0.2.7/ios/harfbuzz/src/graph/gsubgpos-context.cc.o
+[4/12] Building CXX object CMakeFiles/rive_text.dir/Users/pimolnutsriphadej/.pub-cache/hosted/pub.dev/rive_common-0.2.7/ios/harfbuzz/src/hb-subset-cff2.cc.o
+[5/12] Building CXX object CMakeFiles/rive_text.dir/Users/pimolnutsriphadej/.pub-cache/hosted/pub.dev/rive_common-0.2.7/ios/harfbuzz/src/hb-subset-cff1.cc.o
+[6/12] Building CXX object CMakeFiles/rive_text.dir/Users/pimolnutsriphadej/.pub-cache/hosted/pub.dev/rive_common-0.2.7/ios/harfbuzz/src/hb-ot-shape-fallback.cc.o
+[7/12] Building CXX object CMakeFiles/rive_text.dir/Users/pimolnutsriphadej/.pub-cache/hosted/pub.dev/rive_common-0.2.7/ios/harfbuzz/src/hb-ot-shaper-arabic.cc.o
+[8/12] Building CXX object CMakeFiles/rive_text.dir/Users/pimolnutsriphadej/.pub-cache/hosted/pub.dev/rive_common-0.2.7/ios/harfbuzz/src/hb-ot-face.cc.o
+[9/12] Building CXX object CMakeFiles/rive_text.dir/Users/pimolnutsriphadej/.pub-cache/hosted/pub.dev/rive_common-0.2.7/ios/harfbuzz/src/hb-ot-layout.cc.o
+[10/12] Building CXX object CMakeFiles/rive_text.dir/Users/pimolnutsriphadej/.pub-cache/hosted/pub.dev/rive_common-0.2.7/ios/harfbuzz/src/hb-subset-plan.cc.o
+[11/12] Building CXX object CMakeFiles/rive_text.dir/Users/pimolnutsriphadej/.pub-cache/hosted/pub.dev/rive_common-0.2.7/ios/harfbuzz/src/hb-subset.cc.o
+[12/12] Linking CXX shared library /Users/pimolnutsriphadej/Desktop/flutterchallenge/testnewmap/build/rive_common/intermediates/cxx/Debug/1325x1y5/obj/x86/librive_text.so

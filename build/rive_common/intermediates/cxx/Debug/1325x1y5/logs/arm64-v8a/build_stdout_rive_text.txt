@@ -1,0 +1,3 @@
+ninja: Entering directory `/Users/pimolnutsriphadej/.pub-cache/hosted/pub.dev/rive_common-0.2.7/android/.cxx/Debug/1325x1y5/arm64-v8a'
+[1/2] Building CXX object CMakeFiles/rive_text.dir/Users/pimolnutsriphadej/.pub-cache/hosted/pub.dev/rive_common-0.2.7/ios/harfbuzz/src/hb-subset.cc.o
+[2/2] Linking CXX shared library /Users/pimolnutsriphadej/Desktop/flutterchallenge/testnewmap/build/rive_common/intermediates/cxx/Debug/1325x1y5/obj/arm64-v8a/librive_text.so

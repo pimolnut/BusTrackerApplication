@@ -1,0 +1,4 @@
+/Users/pimolnutsriphadej/Library/Android/sdk/cmake/3.18.1/bin/ninja \
+  -C \
+  /Users/pimolnutsriphadej/.pub-cache/hosted/pub.dev/rive_common-0.2.7/android/.cxx/Debug/1325x1y5/armeabi-v7a \
+  rive_text
