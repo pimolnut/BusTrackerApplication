@@ -1,12 +1,15 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:testnewmap/current_location.dart';
+
 import 'package:testnewmap/display_place.dart';
-import 'package:testnewmap/location.dart';
 
 ///////////////////////////page 3/////////////////////////////////////////
 /////show bus stop and each location + travel time (bus number is 777)//////////
-
 double myLongDouble = double.parse(myLongStr);
 double myLatDouble = double.parse(myLatStr);
 List<Map<String, dynamic>> bus = [
@@ -35,13 +38,28 @@ class BusStop extends StatefulWidget {
 }
 
 class _BusStopState extends State<BusStop> {
+  Timer? timer;
+  late double num1;
+  late double num2;
+  @override
+  void initState() {
+    super.initState();
+    timer = Timer.periodic(Duration(seconds: 1), (Timer t) {
+      setState(() {
+        myLongDouble = double.parse(myLongStr);
+        myLatDouble = double.parse(myLatStr);
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         leading: BackButton(
           onPressed: () {
-            Navigator.of(context).pop();
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => currentLocation()));
           },
         ),
         backgroundColor: Color.fromRGBO(10, 26, 127, 0.751),
@@ -112,8 +130,9 @@ class _BusStopState extends State<BusStop> {
                                     height: 30,
                                   ),
                                   //tell dest
-                                  const Text(
-                                    ' ARL ลาดกระบัง',
+                                  Text(
+                                    myLongDouble.toString(),
+                                    // ' ARL ลาดกระบัง',
                                     style: TextStyle(
                                       color: Colors.white,
                                       fontFamily: "FCIconic",
@@ -225,7 +244,10 @@ class ShowMapAndMark extends StatefulWidget {
 }
 
 class _ShowMapAndMarkState extends State<ShowMapAndMark> {
+  final Completer<GoogleMapController> _controller = Completer();
+
   static const LatLng source = LatLng(13.72987831788902, 100.77799696840856);
+
   static LatLng dest = LatLng(myLatDouble, myLongDouble);
 
   final Polyline _kPolyline = Polyline(
@@ -233,8 +255,8 @@ class _ShowMapAndMarkState extends State<ShowMapAndMark> {
     color: const Color(0xFF7B61FF),
     width: 6,
     points: [
-      LatLng(source.latitude, source.longitude),
-      LatLng(dest.latitude, dest.longitude)
+      LatLng(13.72987831788902, 100.77799696840856),
+      LatLng(myLatDouble, myLongDouble)
     ],
   );
   @override
@@ -245,6 +267,7 @@ class _ShowMapAndMarkState extends State<ShowMapAndMark> {
           target: LatLng(13.72976753118423, 100.75748581588128),
           zoom: 10.0,
         ),
+
         //markers: {_GoogleMark},
         polylines: {
           _kPolyline,
@@ -255,13 +278,14 @@ class _ShowMapAndMarkState extends State<ShowMapAndMark> {
             markerId: MarkerId("source"),
             infoWindow: InfoWindow(title: 'KMITL'),
             icon: BitmapDescriptor.defaultMarker,
-            position: LatLng(source.latitude, source.longitude),
+            position: LatLng(13.72987831788902, 100.77799696840856),
             draggable: true,
           ),
           Marker(
             markerId: MarkerId("des"),
             infoWindow: InfoWindow(title: 'APL ลาดกระบัง'),
-            position: LatLng(dest.latitude, dest.longitude),
+            icon: BitmapDescriptor.defaultMarker,
+            position: LatLng(myLatDouble, myLongDouble),
             draggable: true,
           ),
         },

@@ -28,7 +28,7 @@ class _LatDisplayState extends State<LatDisplay> {
     super.initState();
 
     // Start a timer to navigate to Page2 after 3 seconds (adjust as needed).
-    Timer(Duration(seconds: 1), () {
+    Timer(Duration(milliseconds: 500), () {
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => BusStop()),

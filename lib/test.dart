@@ -1,10 +1,9 @@
-import 'dart:math';
-
 /////////////////////empty page//////////////////////////
 ///
 import 'package:flutter/material.dart';
 import 'package:google_maps_widget/google_maps_widget.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
+import 'package:testnewmap/track_bus.dart';
 
 class LiveLovation extends StatelessWidget {
   final mapsWidgetController = GlobalKey<GoogleMapsWidgetState>();
@@ -20,14 +19,10 @@ class LiveLovation extends StatelessWidget {
                 child: GoogleMapsWidget(
                   apiKey: "AIzaSyDkrfYFY_JAb_mkmkWLltLnk6TNH9nlolc",
                   key: mapsWidgetController,
-                  sourceLatLng: LatLng(
-                    40.484000837597925,
-                    -3.369978368282318,
-                  ),
-                  destinationLatLng: LatLng(
-                    40.48017307700204,
-                    -3.3618026599287987,
-                  ),
+                  sourceLatLng:
+                      const LatLng(14.72976753118423, 100.75748581588128),
+                  destinationLatLng:
+                      const LatLng(13.72976753118423, 100.75748581588128),
 
                   ///////////////////////////////////////////////////////
                   //////////////    OPTIONAL PARAMETERS    //////////////
@@ -41,7 +36,7 @@ class LiveLovation extends StatelessWidget {
                     },
                     assetPath: "assets/img/locationTransparen_RBG_NEW.png",
                   ),
-                  destinationMarkerIconInfo: MarkerIconInfo(
+                  destinationMarkerIconInfo: const MarkerIconInfo(
                     assetPath: "assets/img/locationTransparen_RBG_NEW.png",
                   ),
                   driverMarkerIconInfo: MarkerIconInfo(
@@ -59,10 +54,10 @@ class LiveLovation extends StatelessWidget {
                   updatePolylinesOnDriverLocUpdate: true,
                   // mock stream
                   driverCoordinatesStream: Stream.periodic(
-                    Duration(milliseconds: 500),
+                    const Duration(milliseconds: 500),
                     (i) => LatLng(
-                      40.47747872288886 + i / 10000,
-                      -3.368043154478073 - i / 10000,
+                      myLatDouble,
+                      myLongDouble,
                     ),
                   ),
                   totalTimeCallback: (time) => print(time),
@@ -79,8 +74,8 @@ class LiveLovation extends StatelessWidget {
                         onPressed: () {
                           mapsWidgetController.currentState!.setSourceLatLng(
                             LatLng(
-                              40.484000837597925 * (Random().nextDouble()),
-                              -3.369978368282318,
+                              myLatDouble,
+                              myLongDouble,
                             ),
                           );
                         },

@@ -6,6 +6,7 @@ import 'package:testnewmap/display_place.dart';
 // import 'package:testnewmap/map_screen.dart';
 // import 'package:testnewmap/pop_up_message.dart';
 import 'package:permission_handler/permission_handler.dart';
+
 // import 'package:testnewmap/search.dart';
 // import 'package:testnewmap/show_map.dart';
 // import 'package:testnewmap/test.dart';
@@ -38,7 +39,7 @@ class MyApp extends StatelessWidget {
         // home: PopUpMessage());
         // home: SearchPage());
         // home: currentLocation());
-        // home: LiveLovation());
+        //home: LiveLovation());
         //home: BusStop());
         home: startScreen(
           title: "lk",

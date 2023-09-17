@@ -160,7 +160,7 @@ class _currentLocationState extends State<currentLocation> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => LatDisplay()));
+                                      builder: (context) => BusStop2_111()));
                             },
                             style: TextButton.styleFrom(
                               backgroundColor:
