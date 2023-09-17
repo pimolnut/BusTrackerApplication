@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:testnewmap/location.dart';
 
@@ -213,15 +214,33 @@ class ShowMapAndMark2 extends StatefulWidget {
 class _ShowMapAndMark2State extends State<ShowMapAndMark2> {
   static const LatLng source = LatLng(13.72987831788902, 100.77799696840856);
   static const LatLng dest = LatLng(13.758208383681616, 100.79406011634818);
-  final Polyline _kPolyline = Polyline(
-    polylineId: PolylineId('_kPolyline'),
-    color: const Color(0xFF7B61FF),
-    width: 6,
-    points: [
-      LatLng(source.latitude, source.longitude),
-      LatLng(dest.latitude, dest.longitude)
-    ],
-  );
+
+  static String API = 'AIzaSyDkrfYFY_JAb_mkmkWLltLnk6TNH9nlolc';
+  List<LatLng> polylineCoordinates = [];
+  void getPolyPoints() async {
+    PolylinePoints polylinePoints = PolylinePoints();
+    PolylineResult result = await polylinePoints.getRouteBetweenCoordinates(
+      API,
+      PointLatLng(13.72987831788902, 100.77799696840856),
+      PointLatLng(13.758208383681616, 100.79406011634818),
+    );
+    if (result.points.isNotEmpty) {
+      result.points.forEach(
+        (PointLatLng point) => polylineCoordinates.add(
+          LatLng(point.latitude, point.longitude),
+        ),
+      );
+      setState(() {});
+    }
+  }
+
+  @override
+  void initState() {
+    getPolyPoints();
+    setCustomMarkerIcon();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -232,7 +251,12 @@ class _ShowMapAndMark2State extends State<ShowMapAndMark2> {
         ),
         //markers: {_GoogleMark},
         polylines: {
-          _kPolyline,
+          Polyline(
+            polylineId: const PolylineId("route"),
+            points: polylineCoordinates,
+            color: const Color(0xFF7B61FF),
+            width: 6,
+          ),
         },
         minMaxZoomPreference: MinMaxZoomPreference(10, 15),
         markers: {
@@ -246,6 +270,7 @@ class _ShowMapAndMark2State extends State<ShowMapAndMark2> {
           Marker(
             markerId: MarkerId("des"),
             infoWindow: InfoWindow(title: 'V condo'),
+            icon: currentLocationIcon,
             position: LatLng(dest.latitude, dest.longitude),
             draggable: true,
           ),
@@ -253,4 +278,15 @@ class _ShowMapAndMark2State extends State<ShowMapAndMark2> {
       ),
     );
   }
+}
+
+BitmapDescriptor currentLocationIcon = BitmapDescriptor.defaultMarker;
+void setCustomMarkerIcon() {
+  BitmapDescriptor.fromAssetImage(
+          ImageConfiguration.empty, "assets/img/BusStop_RBG.png")
+      .then(
+    (icon) {
+      currentLocationIcon = icon;
+    },
+  );
 }

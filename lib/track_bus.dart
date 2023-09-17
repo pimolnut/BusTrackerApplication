@@ -254,6 +254,7 @@ class _ShowMapAndMarkState extends State<ShowMapAndMark> {
   @override
   void initState() {
     super.initState();
+    setCustomMarkerIcon();
     _getPolyline();
   }
 
@@ -281,15 +282,6 @@ class _ShowMapAndMarkState extends State<ShowMapAndMark> {
     }
   }
 
-  // Polyline _kPolyline = Polyline(
-  //   polylineId: PolylineId('_kPolyline'),
-  //   color: const Color(0xFF7B61FF),
-  //   width: 6,
-  //   points: [
-  //     LatLng(13.72987831788902, 100.77799696840856),
-  //     LatLng(myLatDouble, myLongDouble)
-  //   ],
-  // );
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -313,7 +305,7 @@ class _ShowMapAndMarkState extends State<ShowMapAndMark> {
           Marker(
             markerId: MarkerId("des"),
             infoWindow: InfoWindow(title: 'APL ลาดกระบัง'),
-            icon: BitmapDescriptor.defaultMarker,
+            icon: currentLocationIcon,
             position: LatLng(myLatDouble, myLongDouble),
             draggable: true,
           ),
@@ -321,4 +313,15 @@ class _ShowMapAndMarkState extends State<ShowMapAndMark> {
       ),
     );
   }
+}
+
+BitmapDescriptor currentLocationIcon = BitmapDescriptor.defaultMarker;
+void setCustomMarkerIcon() {
+  BitmapDescriptor.fromAssetImage(
+          ImageConfiguration.empty, "assets/img/BusStop_RBG.png")
+      .then(
+    (icon) {
+      currentLocationIcon = icon;
+    },
+  );
 }
