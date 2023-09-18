@@ -77,12 +77,15 @@ class _MyHomePageState extends State<startScreen> {
                 width: 201,
               ),
               const SizedBox(
-                height: 10,
+                height: 20,
               ),
               const Text(
-                'Welcome to our service!',
+                'ยินดีต้อนรับเข้าสู่บริการของเรา!',
                 style: TextStyle(
-                    fontSize: 24, color: Color.fromARGB(255, 255, 255, 255)),
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: "FCIconic",
+                    color: Color.fromARGB(255, 255, 255, 255)),
               ),
               const SizedBox(
                 height: 15,
@@ -98,12 +101,20 @@ class _MyHomePageState extends State<startScreen> {
 
                   ///currentpage
                 },
-                icon: const Icon(Icons.arrow_right_alt),
-                label: const Text('Start'),
+                icon: const Icon(
+                  Icons.arrow_right_alt,
+                  color: Color.fromARGB(255, 227, 105, 39),
+                ),
+                label: const Text('เริ่มต้น',
+                    style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: "FCIconic",
+                        color: Color.fromARGB(255, 252, 252, 252))),
               ),
             ],
           ),
-          color: Color.fromARGB(255, 26, 16, 127),
+          color: Color.fromRGBO(12, 26, 53, 1),
           width: 500,
         ),
       ),

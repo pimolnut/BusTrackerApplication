@@ -13,20 +13,20 @@ import 'package:testnewmap/display_place.dart';
 double myLongDouble = double.parse(myLongStr);
 double myLatDouble = double.parse(myLatStr);
 List<Map<String, dynamic>> bus = [
-  {'id': 0, 'name': 'แยกสนามบิน', 'price': 0.0},
-  {'id': 1, 'name': 'แยกร่มเกล้า - ลาดกระบัง', 'price': 9.0},
-  {'id': 2, 'name': 'สำนักงานเขตลาดกระบัง', 'price': 4.0},
-  {'id': 3, 'name': 'สน.ลาดกระบัง', 'price': 5.0},
-  {'id': 4, 'name': 'วัดปลูกศรัทธา(วัด 4)', 'price': 5.0},
-  {'id': 5, 'name': 'แยกเจ้าคุณทหาร', 'price': 5.0},
-  {'id': 6, 'name': 'ตรงข้าม FBT', 'price': 5.0},
-  {'id': 7, 'name': 'คณะเทคโนโลยีการเกษตร', 'price': 5.0},
-  {'id': 8, 'name': 'ประตูทางโค้งคณะสถาปัตยกรรมศาสตร์', 'price': 5.0},
-  {'id': 9, 'name': 'ป้ายใหญ่คณะวิศวกรรมศาสตร์', 'price': 5.0},
-  {'id': 10, 'name': 'ตรงข้ามคณะวิทย์', 'price': 5.0},
-  {'id': 11, 'name': 'ตึกอธิการบดี', 'price': 5.0},
-  {'id': 12, 'name': 'คณะ IT', 'price': 5.0},
-  {'id': 13, 'name': 'ทางออกมอเตอร์เวย์', 'price': 5.0},
+  {'id': 0, 'name': 'แยกสนามบิน'},
+  {'id': 1, 'name': 'แยกร่มเกล้า - ลาดกระบัง'},
+  {'id': 2, 'name': 'สำนักงานเขตลาดกระบัง'},
+  {'id': 3, 'name': 'สน.ลาดกระบัง'},
+  {'id': 4, 'name': 'วัดปลูกศรัทธา(วัด 4)'},
+  {'id': 5, 'name': 'แยกเจ้าคุณทหาร'},
+  {'id': 6, 'name': 'ตรงข้าม FBT'},
+  {'id': 7, 'name': 'คณะเทคโนโลยีการเกษตร'},
+  {'id': 8, 'name': 'ประตูทางโค้งคณะสถาปัตยกรรมศาสตร์'},
+  {'id': 9, 'name': 'ป้ายใหญ่คณะวิศวกรรมศาสตร์'},
+  {'id': 10, 'name': 'ตรงข้ามคณะวิทย์'},
+  {'id': 11, 'name': 'ตึกอธิการบดี'},
+  {'id': 12, 'name': 'คณะ IT'},
+  {'id': 13, 'name': 'ทางออกมอเตอร์เวย์'},
   {'id': 14, 'name': 'แอร์พอร์ตลิ้งค์ลาดกระบัง', 'price': 5.0},
 ];
 
@@ -62,7 +62,7 @@ class _BusStopState extends State<BusStop> {
                 MaterialPageRoute(builder: (context) => currentLocation()));
           },
         ),
-        backgroundColor: Color.fromRGBO(10, 26, 127, 0.751),
+        backgroundColor: Color.fromRGBO(255, 255, 255, 0.749),
       ),
       body: Stack(children: [
         Positioned(
@@ -86,7 +86,7 @@ class _BusStopState extends State<BusStop> {
           builder: (BuildContext context, ScrollController scrollController) {
             return Container(
               color:
-                  Color.fromRGBO(12, 25, 103, 0.671), // 0.6 = transparent color
+                  Color.fromRGBO(14, 13, 13, 0.565), // 0.6 = transparent color
               child: ListView.builder(
                 physics: ClampingScrollPhysics(),
                 controller: scrollController,
@@ -186,12 +186,12 @@ class _BusStopState extends State<BusStop> {
                   return Card(
                     margin: EdgeInsets.zero,
                     elevation: 0,
-                    color: Color.fromRGBO(10, 26, 127, 0.486),
+                    color: Color.fromRGBO(35, 51, 92, 1),
                     child: ListTile(
                       onTap: () {},
                       contentPadding: EdgeInsets.all(5),
                       leading: Image.asset(
-                        'assets/img/locationTransparen_RBG_NEW.png',
+                        'assets/img/BusStop_RBG.png',
                         height: 120,
                       ),
                       title: Column(
@@ -304,7 +304,7 @@ class _ShowMapAndMarkState extends State<ShowMapAndMark> {
           ),
           Marker(
             markerId: MarkerId("des"),
-            infoWindow: InfoWindow(title: 'APL ลาดกระบัง'),
+            infoWindow: InfoWindow(title: 'current location'),
             icon: currentLocationIcon,
             position: LatLng(myLatDouble, myLongDouble),
             draggable: true,

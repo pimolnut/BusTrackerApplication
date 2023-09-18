@@ -76,6 +76,7 @@ flutter:
   assets:
     - assets/img/
     - assets/img/logo.png
+    - assets/img/KMITL.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

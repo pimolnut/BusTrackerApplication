@@ -42,7 +42,7 @@ class _BusStop2_111State extends State<BusStop2_111> {
             Navigator.of(context).pop();
           },
         ),
-        backgroundColor: Color.fromRGBO(10, 26, 127, 0.751),
+        backgroundColor: Color.fromRGBO(255, 255, 255, 0.749),
       ),
       body: Stack(children: [
         ShowMapAndMark2(),
@@ -55,7 +55,7 @@ class _BusStop2_111State extends State<BusStop2_111> {
           builder: (BuildContext context, ScrollController scrollController) {
             return Container(
               color:
-                  Color.fromRGBO(12, 25, 103, 0.671), // 0.6 = transparent color
+                  Color.fromRGBO(14, 13, 13, 0.565), // 0.6 = transparent color
               child: ListView.builder(
                 physics: ClampingScrollPhysics(),
                 controller: scrollController,
@@ -156,12 +156,12 @@ class _BusStop2_111State extends State<BusStop2_111> {
                   return Card(
                     margin: EdgeInsets.zero,
                     elevation: 0,
-                    color: Color.fromRGBO(10, 26, 127, 0.486),
+                    color: Color.fromRGBO(35, 51, 92, 1),
                     child: ListTile(
                       onTap: () {},
                       contentPadding: EdgeInsets.all(5),
                       leading: Image.asset(
-                        'assets/img/locationTransparen_RBG_NEW.png',
+                        'assets/img/BusStop_RBG.png',
                         height: 120,
                       ),
                       title: Column(

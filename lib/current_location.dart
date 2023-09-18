@@ -67,7 +67,7 @@ class _currentLocationState extends State<currentLocation> {
                 padding: const EdgeInsets.only(left: 20, right: 20, top: 30),
                 width: MediaQuery.of(context).size.width,
                 decoration: const BoxDecoration(
-                  color: Color.fromRGBO(191, 190, 190, 0.844),
+                  color: Color.fromRGBO(191, 184, 184, 0.566),
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(30),
                     topRight: Radius.circular(30),
@@ -81,7 +81,7 @@ class _currentLocationState extends State<currentLocation> {
                       margin: const EdgeInsets.only(bottom: 3),
                       padding: const EdgeInsets.all(3.0),
                       decoration: const BoxDecoration(
-                        color: Color.fromRGBO(111, 105, 105, 0.648),
+                        color: Color.fromRGBO(134, 132, 131, 0.643),
                         borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(5),
                           topRight: Radius.circular(5),

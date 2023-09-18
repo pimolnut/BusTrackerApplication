@@ -30,7 +30,7 @@ class _MapScreenState extends State<MapScreen> {
             Navigator.of(context).pop();
           },
         ),
-        backgroundColor: Color.fromRGBO(10, 26, 127, 0.751),
+        backgroundColor: Color.fromRGBO(255, 255, 255, 0.749),
       ),
       body: Container(
         child: GoogleMap(

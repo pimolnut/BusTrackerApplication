@@ -84,6 +84,7 @@ class _SearchPageState extends State<SearchPage> {
       appBar: AppBar(
         //backgroundColor: Colors.blue,
         elevation: 0.0,
+        backgroundColor: Color.fromRGBO(255, 255, 255, 0.749),
       ),
       body: Padding(
         padding: EdgeInsets.all(16),
